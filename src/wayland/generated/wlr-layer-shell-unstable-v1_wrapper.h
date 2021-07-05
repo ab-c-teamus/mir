@@ -30,10 +30,8 @@ public:
 
     static LayerShellV1* from(struct wl_resource*);
 
-    LayerShellV1(struct wl_resource* resource, Version<3>);
+    LayerShellV1(struct wl_resource* resource, Version<4>);
     virtual ~LayerShellV1();
-
-    void destroy_wayland_object() const;
 
     struct wl_client* const client;
     struct wl_resource* const resource;
@@ -60,7 +58,7 @@ public:
     class Global : public wayland::Global
     {
     public:
-        Global(wl_display* display, Version<3>);
+        Global(wl_display* display, Version<4>);
 
         auto interface_name() const -> char const* override;
 
@@ -71,7 +69,6 @@ public:
 
 private:
     virtual void get_layer_surface(struct wl_resource* id, struct wl_resource* surface, std::experimental::optional<struct wl_resource*> const& output, uint32_t layer, std::string const& namespace_) = 0;
-    virtual void destroy() = 0;
 };
 
 class LayerSurfaceV1 : public Resource
@@ -81,22 +78,28 @@ public:
 
     static LayerSurfaceV1* from(struct wl_resource*);
 
-    LayerSurfaceV1(struct wl_resource* resource, Version<3>);
+    LayerSurfaceV1(struct wl_resource* resource, Version<4>);
     virtual ~LayerSurfaceV1();
 
     void send_configure_event(uint32_t serial, uint32_t width, uint32_t height) const;
     void send_closed_event() const;
 
-    void destroy_wayland_object() const;
-
     struct wl_client* const client;
     struct wl_resource* const resource;
+
+    struct KeyboardInteractivity
+    {
+        static uint32_t const none = 0;
+        static uint32_t const exclusive = 1;
+        static uint32_t const on_demand = 2;
+    };
 
     struct Error
     {
         static uint32_t const invalid_surface_state = 0;
         static uint32_t const invalid_size = 1;
         static uint32_t const invalid_anchor = 2;
+        static uint32_t const invalid_keyboard_interactivity = 3;
     };
 
     struct Anchor
@@ -125,7 +128,6 @@ private:
     virtual void set_keyboard_interactivity(uint32_t keyboard_interactivity) = 0;
     virtual void get_popup(struct wl_resource* popup) = 0;
     virtual void ack_configure(uint32_t serial) = 0;
-    virtual void destroy() = 0;
     virtual void set_layer(uint32_t layer) = 0;
 };
 

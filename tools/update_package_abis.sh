@@ -13,10 +13,8 @@ packages="\
     libmiroil:MIROIL_ABI \
     libmiral:MIRAL_ABI \
     libmircore:MIRCORE_ABI \
-    libmirclient:MIRCLIENT_ABI \
     libmircommon:MIRCOMMON_ABI \
     libmirplatform:MIRPLATFORM_ABI \
-    libmirprotobuf:MIRPROTOBUF_ABI \
     libmirserver:MIRSERVER_ABI \
     libmircookie:MIRCOOKIE_ABI \
     mir-platform-graphics-x:MIR_SERVER_GRAPHICS_PLATFORM_ABI \

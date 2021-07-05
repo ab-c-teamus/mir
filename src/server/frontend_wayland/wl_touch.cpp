@@ -23,7 +23,7 @@
 #include "wl_seat.h"
 
 #include "mir/executor.h"
-#include "mir/client/event.h"
+#include "mir_toolkit/events/event.h"
 #include "mir/log.h"
 
 #include <chrono>
@@ -182,9 +182,4 @@ void mf::WlTouch::maybe_frame()
         send_frame_event();
         needs_frame = false;
     }
-}
-
-void mf::WlTouch::release()
-{
-    destroy_wayland_object();
 }
