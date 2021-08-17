@@ -33,8 +33,7 @@ jobs:
                  "google:ubuntu-20.04-64:spread/build/ubuntu:tsan_clang"
                  "google:ubuntu-20.04-64:spread/build/ubuntu:ubsan_clang"'
         else
-          TASKS='"lxd:alpine-3.14:spread/build/alpine:amd64"
-                 "lxd:alpine-edge:spread/build/alpine:amd64"'
+          TASKS=''
 
           # Only run if we have access to secrets.
           if ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}; then

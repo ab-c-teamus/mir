@@ -5,8 +5,8 @@ kill-timeout: 45m
 backends:
     lxd:
         systems:
-            - alpine-3.14
-            - alpine-edge
+#            - alpine-3.14
+#            - alpine-edge
             - ubuntu-20.04
             - fedora-33
             - fedora-34
