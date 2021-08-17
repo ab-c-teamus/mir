@@ -41,7 +41,11 @@ execute: |
         yaml-cpp-devel\
         egl-wayland-devel \
         systemtap-sdt-devel \
-        libdrm-devel
+        libdrm-devel \
+        xorg-x11-server-Xvfb \
+        xorg-x11-xauth \
+        xorg-x11-server-Xwayland \
+        glmark2
 
     BUILD_DIR=$(mktemp --directory)
     cmake -H$SPREAD_PATH -B$BUILD_DIR -DCMAKE_BUILD_TYPE=Debug -DMIR_ENABLE_WLCS_TESTS=OFF

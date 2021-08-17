@@ -62,7 +62,10 @@ Build-Depends: cmake,
                eglexternalplatform-dev,
                systemtap-sdt-dev,
                wlcs,
-               xvfb
+               xvfb,
+               xauth,
+               xwayland,
+               glmark2-es2-wayland
 Standards-Version: 3.9.4
 Homepage: https://launchpad.net/mir
 # If you aren't a member of ~mir-team but need to upload packaging changes,
