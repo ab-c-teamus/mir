@@ -17,3 +17,11 @@ add_custom_target(mir-smoke-test-runner ALL
 install(PROGRAMS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/mir-smoke-test-runner
     DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
 )
+
+mir_add_test(NAME mir_performance_tests
+    COMMAND "xvfb-run" "--server-num=98" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/mir_performance_tests"
+)
+
+mir_add_test(NAME mir-smoke-test-runner
+    COMMAND "xvfb-run" "--server-num=97" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/mir-smoke-test-runner"
+)
